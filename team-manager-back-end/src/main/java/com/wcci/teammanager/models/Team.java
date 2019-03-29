@@ -20,10 +20,8 @@ public class Team {
 	@JsonIgnore
 	private Division division;
 
+	public Team() {}
 	
-	
-	
-	private Team() {}
 	
 	public Team(String teamName, String teamLogo, String location, Division division) {
 		this.teamName = teamName;	
@@ -46,6 +44,11 @@ public class Team {
 
 	public String getLocation() {
 		return location;
+	}
+
+
+	public Division getDivision() {
+		return division;
 	}
 
 

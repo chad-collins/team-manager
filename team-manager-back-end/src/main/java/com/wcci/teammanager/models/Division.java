@@ -21,10 +21,8 @@ public class Division {
 	@ManyToOne
 	private Conference conference;
 	
-	private Division() {}
+	public Division() {}
 	
-	
-
 	public Division(String divisionName, Conference conference) {
 	
 		this.divisionName = divisionName;
