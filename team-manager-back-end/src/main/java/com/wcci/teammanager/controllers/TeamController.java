@@ -18,9 +18,6 @@ import com.wcci.teammanager.repositories.ConferenceRepository;
 import com.wcci.teammanager.repositories.DivisionRepository;
 import com.wcci.teammanager.repositories.TeamRepository;
 
-
-
-
 @RestController
 @RequestMapping("/teams")
 public class TeamController {
@@ -37,15 +34,15 @@ public class TeamController {
 		return (Collection<Team>) teamRepo.findAll();
 	}
 	
-	@PostMapping("/add")
-	public Collection<Team> addTeam(@RequestBody String body) throws JSONException {
-		JSONObject newTeam = new JSONObject(body);
-		String teamName = newTeam.getString("teamName");
-		String teamLogo = newTeam.getString("teamLogo");
-		String location = newTeam.getString("location");
-		Division division = divisionRepo.findById(Long.parseLong(newTeam.getString("division"))).get();
-		teamRepo.save(new Team(teamName, teamLogo, location, division));
-		return (Collection<Team>) teamRepo.findAll();
-	}
+//	@PostMapping("/add")
+//	public Collection<Team> addTeam(@RequestBody String body) throws JSONException {
+//		JSONObject newTeam = new JSONObject(body);
+//		String teamName = newTeam.getString("teamName");
+//		String teamLogo = newTeam.getString("teamLogo");
+//		String location = newTeam.getString("location");
+//		Division division = divisionRepo.findById(Long.parseLong(newTeam.getString("division"))).get();
+//		teamRepo.save(new Team(teamName, teamLogo, location, division));
+//		return (Collection<Team>) teamRepo.findAll();
+//	}
 
 }

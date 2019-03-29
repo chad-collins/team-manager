@@ -34,12 +34,12 @@ public class ConferenceController {
 		return (Collection<Conference>) conferenceRepo.findAll();
 	}
 	
-	@PostMapping("/add")
-	public Collection<Conference> addConference(@RequestBody String body) throws JSONException {
-		JSONObject newConference = new JSONObject(body);
-		String conferenceName = newConference.getString("conferenceName");
-		conferenceRepo.save(new Conference(conferenceName));
-		return (Collection<Conference>) conferenceRepo.findAll();
-	}
+//	@PostMapping("/add")
+//	public Collection<Conference> addConference(@RequestBody String body) throws JSONException {
+//		JSONObject newConference = new JSONObject(body);
+//		String conferenceName = newConference.getString("conferenceName");
+//		conferenceRepo.save(new Conference(conferenceName));
+//		return (Collection<Conference>) conferenceRepo.findAll();
+//	}
 
 }
