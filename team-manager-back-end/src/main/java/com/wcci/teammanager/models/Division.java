@@ -9,6 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Division {
 	
@@ -19,6 +21,7 @@ public class Division {
 	@OneToMany(mappedBy="division")
 	private Collection <Team> teams;
 	@ManyToOne
+	@JsonIgnore
 	private Conference conference;
 	
 	public Division() {}
