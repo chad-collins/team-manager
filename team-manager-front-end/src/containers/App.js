@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Conferences from '../components/conferences/Conferences';
-
+import AddConference from '../components/conferences/AddConference';
 class App extends Component {
 
   constructor() {
@@ -40,6 +40,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <AddConference />
         <Conferences conferences={this.state.conferences} />
       </div>
     );
