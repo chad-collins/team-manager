@@ -14,17 +14,19 @@ export class Conference extends Component {
 
   
   render() {
-    const { conferenceName, divisions } = this.props.conference;
+    const { conferenceName, divisions, conferenceId } = this.props.conference;
 
         return (
             <div  style={this.getStyle()}>
                 <h2>{ conferenceName }</h2>
+                <button onClick={this.props.delConference.bind(this, conferenceId)}>x</button>
                 {
                     divisions.map((division) => {
                         return (
                             <Division
                                 key={division.divisionId} 
-                                division={division} 
+                                division={division}
+                                delTeam={ this.props.delTeam}
                             />
                         )
                     }) 
@@ -33,17 +35,6 @@ export class Conference extends Component {
         ) 
     }
 
-
-
-    // return (
-    //   <div style={this.getStyle()}>
-    //     <h2>{ conferenceName }</h2>
-
-
-    //  </div>
-      
-      
-    // )
   }
 
 // PropTypes

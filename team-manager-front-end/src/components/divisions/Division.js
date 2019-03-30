@@ -23,7 +23,8 @@ export class Division extends Component {
                         return (
                             <Team 
                                 key={team.teamId} 
-                                team={team} 
+                                team={team}
+                                delTeam={ this.props.delTeam}
                             />
                         )
                     }) 
