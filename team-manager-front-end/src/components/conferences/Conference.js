@@ -14,13 +14,13 @@ export class Conference extends Component {
 
   
   render() {
-    const { conferenceId, conferenceName, divisions } = this.props.conference;
+    const { conferenceName, divisions } = this.props.conference;
 
         return (
             <div  style={this.getStyle()}>
                 <h2>{ conferenceName }</h2>
                 {
-                    this.props.conference.divisions.map((division) => {
+                    divisions.map((division) => {
                         return (
                             <Division
                                 key={division.divisionId} 

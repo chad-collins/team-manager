@@ -40,7 +40,6 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <AddConference />
         <Conferences conferences={this.state.conferences} />
       </div>
     );

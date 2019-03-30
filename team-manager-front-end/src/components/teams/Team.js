@@ -12,7 +12,7 @@ export class Team extends Component {
   }
 
   render() {
-    const { teamId, teamName, teamLogo, location } = this.props.team;
+    const { teamName, teamLogo, location } = this.props.team;
     return (
       <div style={this.getStyle()}>
         <h4>{ teamName } { teamLogo } { location } </h4>
