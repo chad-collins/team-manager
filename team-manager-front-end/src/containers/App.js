@@ -7,12 +7,14 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-      conferences: []
+      conferences: [],
+      // divisions: []
     }
   }
 
   componentDidMount() {
     this.getConferences()
+    // this.getDivisions()
   }
 
   getConferences = () => {
@@ -23,6 +25,16 @@ class App extends Component {
       })
       .catch(err => console.log(err))
   }
+
+  // getDivisions = () => {
+  //   fetch('/divisions')
+  //     .then(res => res.json())
+  //     .then(data => {
+  //       this.setState({divisions: data})
+  //     })
+  //     .catch(err => console.log(err))
+  //}
+
 
 
   render() {
