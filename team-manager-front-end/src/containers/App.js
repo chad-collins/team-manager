@@ -1,21 +1,49 @@
 import React, { Component } from 'react';
 import './App.css';
 import Conferences from '../components/conferences/Conferences';
-
+import Team from '../components/teams/Team';
 class App extends Component {
 
   constructor() {
     super()
     this.state = {
       conferences: [],
-      // divisions: []
     }
   }
 
   componentDidMount() {
     this.getConferences()
-    // this.getDivisions()
   }
+
+  delConference(id){
+    console.log(id)
+    fetch(`/conferences/delete/${id}`,
+      {
+        method: 'delete'
+      }
+    )
+      .then(res => res.json())
+      .then(data => {
+        this.setState({conferences: data})
+      })
+      .catch(err => console.log(err))
+  }
+
+  delTeam(id){
+    console.log(id)
+    fetch(`/teams/delete/${id}`,
+      {
+        method: 'delete'
+      }
+    )
+      .then(res => res.json())
+      .then(data => {
+        this.setState({conferences: data})
+      })
+      .then(window.location.reload())
+      .catch(err => console.log(err))
+  }
+
 
   getConferences = () => {
     fetch('/conferences')
@@ -26,21 +54,12 @@ class App extends Component {
       .catch(err => console.log(err))
   }
 
-  // getDivisions = () => {
-  //   fetch('/divisions')
-  //     .then(res => res.json())
-  //     .then(data => {
-  //       this.setState({divisions: data})
-  //     })
-  //     .catch(err => console.log(err))
-  //}
-
 
 
   render() {
     return (
       <div className="App">
-        <Conferences conferences={this.state.conferences} />
+        <Conferences conferences={this.state.conferences} delConference={this.delConference} delTeam={this.delTeam} />
       </div>
     );
   }

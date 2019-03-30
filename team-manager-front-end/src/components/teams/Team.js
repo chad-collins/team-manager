@@ -15,6 +15,7 @@ export class Team extends Component {
     const { teamId, teamName, teamLogo, location } = this.props.team;
     return (
       <div style={this.getStyle()}>
+      <button onClick={this.props.delTeam.bind(this, teamId)}>x</button>
         <h4>{ teamName } { teamLogo } { location } </h4>
       </div>
     )

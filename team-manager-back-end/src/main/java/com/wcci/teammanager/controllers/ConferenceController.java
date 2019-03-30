@@ -4,15 +4,15 @@ import java.util.Collection;
 
 import javax.annotation.Resource;
 
-import org.json.JSONException;
-import org.json.JSONObject;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.wcci.teammanager.models.Conference;
+import com.wcci.teammanager.models.Division;
+import com.wcci.teammanager.models.Team;
 import com.wcci.teammanager.repositories.ConferenceRepository;
 import com.wcci.teammanager.repositories.DivisionRepository;
 import com.wcci.teammanager.repositories.TeamRepository;
@@ -33,6 +33,9 @@ public class ConferenceController {
 	public Collection<Conference> getConferences() {
 		return (Collection<Conference>) conferenceRepo.findAll();
 	}
+
+
+	
 	
 //	@PostMapping("/add")
 //	public Collection<Conference> addConference(@RequestBody String body) throws JSONException {

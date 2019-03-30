@@ -12,18 +12,19 @@ export class Division extends Component {
     }
 
     render() {
-        const { divisionId, divisionName, teams } = this.props.division;
+        const { divisionName, teams } = this.props.division;
         
         return (
             <div style={this.getStyle()}>
                 <h3>{ divisionName }</h3>
                 <div>
                 {
-                    this.props.division.teams.map((team) => {
+                    teams.map((team) => {
                         return (
                             <Team 
                                 key={team.teamId} 
-                                team={team} 
+                                team={team}
+                                delTeam={ this.props.delTeam}
                             />
                         )
                     }) 
