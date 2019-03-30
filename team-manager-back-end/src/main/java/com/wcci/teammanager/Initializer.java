@@ -29,8 +29,9 @@ public class Initializer implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		
 		Conference NFC = conferenceRepo.save(new Conference("NFC"));
+		Conference test = conferenceRepo.save(new Conference("testConference"));
 		
-		Division nfcNorth = divisionRepo.save(new Division("NFC North", NFC));
+		Division nfcNorth = divisionRepo.save(new Division("NFC North", test));
 		Division nfcSouth = divisionRepo.save(new Division("NFC South", NFC));
 		Division nfcWest = divisionRepo.save(new Division("NFC West", NFC));
 		Division nfcEast = divisionRepo.save(new Division("NFC East", NFC));
