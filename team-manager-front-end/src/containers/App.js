@@ -56,6 +56,17 @@ class App extends Component {
       .catch(err => console.log(err))
   }
 
+  updateConferenceName = (id, state) => {
+    fetch(`/conferences/update/title/${id}`,{ method: 'POST', body : JSON.stringify(state) } 
+    )
+    .then(res => res.json())
+      .then(data => {
+        this.setState({conferences: data})
+      })
+      .then(window.location.reload())
+      .catch(err => console.log(err))
+  }
+
 
   getConferences = () => {
     fetch('/conferences')
@@ -71,7 +82,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Conferences conferences={this.state.conferences} delConference={this.delConference} delTeam={this.delTeam} addTeam={this.addTeam} />
+        <Conferences conferences={this.state.conferences} delConference={this.delConference} delTeam={this.delTeam} addTeam={this.addTeam} updateConferenceName={this.updateConferenceName} />
       </div>
     );
   }

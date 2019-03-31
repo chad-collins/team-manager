@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Division from '../divisions/Division';
+import UpdateConferenceName from './UpdateConferenceName';
 
 export class Conference extends Component {
   getStyle = () => {
@@ -19,6 +20,7 @@ export class Conference extends Component {
         return (
             <div  style={this.getStyle()}>
                 <h2>{ conferenceName }</h2>
+                <UpdateConferenceName updateConferenceName={this.props.updateConferenceName} conferenceId={ conferenceId } />
                 <button onClick={this.props.delConference.bind(this, conferenceId)}>x</button>
                 {
                     divisions.map((division) => {
@@ -28,6 +30,7 @@ export class Conference extends Component {
                                 division={division}
                                 delTeam={ this.props.delTeam}
                                 addTeam={this.props.addTeam}
+                                updateConferenceName={this.props.updateConferenceName}
                             />
                         )
                     }) 
