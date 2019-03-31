@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Division from '../divisions/Division';
 import UpdateConferenceName from './UpdateConferenceName';
+import AddDivision from '../divisions/AddDivision';
 
 export class Conference extends Component {
   getStyle = () => {
@@ -13,7 +14,7 @@ export class Conference extends Component {
   }
 
 
-  
+
   render() {
     const { conferenceName, divisions, conferenceId } = this.props.conference;
 
@@ -22,21 +23,22 @@ export class Conference extends Component {
                 <h2>{ conferenceName }</h2>
                 <UpdateConferenceName updateConferenceName={this.props.updateConferenceName} conferenceId={ conferenceId } />
                 <button onClick={this.props.delConference.bind(this, conferenceId)}>x</button>
+                <AddDivision addDivision={this.props.addDivision} conference={this.props.conference}/>
                 {
                     divisions.map((division) => {
                         return (
                             <Division
-                                key={division.divisionId} 
+                                key={division.divisionId}
                                 division={division}
                                 delTeam={ this.props.delTeam}
                                 addTeam={this.props.addTeam}
                                 updateConferenceName={this.props.updateConferenceName}
                             />
                         )
-                    }) 
-                }                 
+                    })
+                }
             </div>
-        ) 
+        )
     }
 
   }
