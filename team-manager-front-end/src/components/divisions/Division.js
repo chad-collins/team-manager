@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Team from '../teams/Team'
+import Team from '../teams/Team';
+import AddTeam from '../teams/AddTeam';
 
 export class Division extends Component {
     getStyle = () => {
@@ -17,6 +18,7 @@ export class Division extends Component {
         return (
             <div style={this.getStyle()}>
                 <h3>{ divisionName }</h3>
+                <AddTeam addTeam={this.props.addTeam} division={this.props.division}/>
                 <div>
                 {
                     teams.map((team) => {

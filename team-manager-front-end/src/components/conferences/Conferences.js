@@ -6,7 +6,7 @@ export class Conferences extends Component {
     render() {
         return this.props.conferences.map((conference) => (
             <Conference key={conference.conferenceId} 
-            conference={conference} delConference={ this.props.delConference  }  delTeam={ this.props.delTeam}/>
+            conference={conference} delConference={ this.props.delConference  }  delTeam={ this.props.delTeam} addTeam={this.props.addTeam}/>
         ));
     }
 }
