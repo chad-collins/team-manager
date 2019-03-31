@@ -27,6 +27,7 @@ export class Conference extends Component {
                                 key={division.divisionId} 
                                 division={division}
                                 delTeam={ this.props.delTeam}
+                                addTeam={this.props.addTeam}
                             />
                         )
                     }) 

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Conferences from '../components/conferences/Conferences';
-import Team from '../components/teams/Team';
+
 class App extends Component {
 
   constructor() {
@@ -14,9 +14,29 @@ class App extends Component {
   componentDidMount() {
     this.getConferences()
   }
+  
+  addTeam(id, teamName, teamLogo, location){
+    fetch(`/teams/add/${id}`,{
+      method: 'POST'
+    },
+      {
+        
+        teamName: teamName,
+        teamLogo : teamLogo,
+        location : location
+      }
+      
+    )
+    .then(res => res.json())
+      .then(data => {
+        this.setState({conferences: data})
+      })
+      .then(window.location.reload())
+      .catch(err => console.log(err))
+  }
 
   delConference(id){
-    console.log(id)
+    
     fetch(`/conferences/delete/${id}`,
       {
         method: 'delete'
@@ -30,7 +50,7 @@ class App extends Component {
   }
 
   delTeam(id){
-    console.log(id)
+   
     fetch(`/teams/delete/${id}`,
       {
         method: 'delete'
@@ -59,7 +79,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Conferences conferences={this.state.conferences} delConference={this.delConference} delTeam={this.delTeam} />
+        <Conferences conferences={this.state.conferences} delConference={this.delConference} delTeam={this.delTeam} addTeam={this.addTeam} />
       </div>
     );
   }
