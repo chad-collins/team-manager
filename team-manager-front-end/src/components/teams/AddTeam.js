@@ -11,7 +11,7 @@ state = {
 
     onSubmit = (event) => {
         event.preventDefault()
-        this.props.addTeam(this.props.division.divisionId, this.state.teamName, this.state.teamLogo, this.state.location)
+        this.props.addTeam(this.props.division.divisionId, this.state)
         console.log(this.props.division)
         this.setState({ title: '', teamLogo :"", location :"", division :"" })
     }

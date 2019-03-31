@@ -15,17 +15,8 @@ class App extends Component {
     this.getConferences()
   }
   
-  addTeam(id, teamName, teamLogo, location){
-    fetch(`/teams/add/${id}`,{
-      method: 'POST'
-    },
-      {
-        
-        teamName: teamName,
-        teamLogo : teamLogo,
-        location : location
-      }
-      
+  addTeam = (id, state) => {
+    fetch(`/teams/add/${id}`,{ method: 'POST', body : JSON.stringify(state) } 
     )
     .then(res => res.json())
       .then(data => {
@@ -34,6 +25,7 @@ class App extends Component {
       .then(window.location.reload())
       .catch(err => console.log(err))
   }
+
 
   delConference(id){
     
