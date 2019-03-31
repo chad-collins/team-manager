@@ -1,4 +1,6 @@
-import React, { Component } from 'react';
+import React, {
+  Component
+} from 'react';
 import './App.css';
 import Conferences from '../components/conferences/Conferences';
 
@@ -14,54 +16,79 @@ class App extends Component {
   componentDidMount() {
     this.getConferences()
   }
-  
-  addTeam = (id, state) => {
-    fetch(`/teams/add/${id}`,{ method: 'POST', body : JSON.stringify(state) } 
-    )
-    .then(res => res.json())
+
+
+  addDivision = (id, state) => {
+    fetch(`/divisions/add/${id}`, {
+        method: 'POST',
+        body: JSON.stringify(state)
+      })
+      .then(res => res.json())
       .then(data => {
-        this.setState({conferences: data})
+        this.setState({
+          conferences: data
+        })
       })
       .then(window.location.reload())
       .catch(err => console.log(err))
   }
 
 
-  delConference(id){
-    
-    fetch(`/conferences/delete/${id}`,
-      {
-        method: 'delete'
-      }
-    )
+  addTeam = (id, state) => {
+    fetch(`/teams/add/${id}`, {
+        method: 'POST',
+        body: JSON.stringify(state)
+      })
       .then(res => res.json())
       .then(data => {
-        this.setState({conferences: data})
+        this.setState({
+          conferences: data
+        })
+      })
+      .then(window.location.reload())
+      .catch(err => console.log(err))
+  }
+
+
+  delConference(id) {
+
+    fetch(`/conferences/delete/${id}`, {
+        method: 'delete'
+      })
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          conferences: data
+        })
       })
       .catch(err => console.log(err))
   }
 
-  delTeam(id){
-   
-    fetch(`/teams/delete/${id}`,
-      {
+  delTeam(id) {
+
+    fetch(`/teams/delete/${id}`, {
         method: 'delete'
-      }
-    )
+      })
       .then(res => res.json())
       .then(data => {
-        this.setState({conferences: data})
+        this.setState({
+          conferences: data
+        })
       })
       .then(window.location.reload())
       .catch(err => console.log(err))
   }
 
   updateConferenceName = (id, state) => {
-    fetch(`/conferences/update/title/${id}`,{ method: 'POST', body : JSON.stringify(state) } 
-    )
-    .then(res => res.json())
+    fetch(`/conferences/update/title/${id}`, {
+        method: 'POST',
+        body: JSON.stringify(state)
+      })
+      .then(res => res.json())
       .then(data => {
-        this.setState({conferences: data})
+        this.setState({
+          conferences: data
+        })
       })
       .then(window.location.reload())
       .catch(err => console.log(err))
@@ -72,7 +99,9 @@ class App extends Component {
     fetch('/conferences')
       .then(res => res.json())
       .then(data => {
-        this.setState({conferences: data})
+        this.setState({
+          conferences: data
+        })
       })
       .catch(err => console.log(err))
   }
@@ -80,10 +109,29 @@ class App extends Component {
 
 
   render() {
-    return (
-      <div className="App">
-        <Conferences conferences={this.state.conferences} delConference={this.delConference} delTeam={this.delTeam} addTeam={this.addTeam} updateConferenceName={this.updateConferenceName} />
-      </div>
+    return ( <
+      div className = "App" >
+      <
+      Conferences conferences = {
+        this.state.conferences
+      }
+      delConference = {
+        this.delConference
+      }
+      delTeam = {
+        this.delTeam
+      }
+      addTeam = {
+        this.addTeam
+      }
+      updateConferenceName = {
+        this.updateConferenceName
+      }
+      addDivision = {
+        this.addDivision
+      }
+      /> <
+      /div>
     );
   }
 }
