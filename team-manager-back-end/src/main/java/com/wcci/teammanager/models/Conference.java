@@ -45,6 +45,11 @@ public class Conference {
 		return "Conference [conferenceId=" + conferenceId + ", conferenceName=" + conferenceName + ", divisions="
 				+ divisions + "]";
 	}
+
+	public void setName(String confName) {
+		this.conferenceName = confName;
+		
+	}
 	
 	
 }
