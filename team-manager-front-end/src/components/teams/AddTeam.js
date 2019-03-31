@@ -20,10 +20,10 @@ state = {
 
   render() {
       return (
-        <form onSubmit={this.onSubmit} style={{display: 'flex'}}>
-          <input type="text" name="teamName" placeholder="name ..." value={this.state.teamName} onChange={this.onChange} style={{flex: '10', padding: '5px'}} />
-          <input type="text" name="teamLogo" placeholder="logo ..." value={this.state.teamLogo} onChange={this.onChange} style={{flex: '10', padding: '5px'}} />
-          <input type="text" name="location" placeholder="locat ..." value={this.state.location} onChange={this.onChange} style={{flex: '10', padding: '5px'}} />
+        <form onSubmit={this.onSubmit} style={{display: 'flex', flexWrap: 'wrap', maxWidth: '1000px', width: '100%'}}>
+          <input type="text" name="teamName" placeholder="Team Name ..." value={this.state.teamName} onChange={this.onChange} style={{flex: '10', padding: '5px'}} />
+          <input type="text" name="teamLogo" placeholder="Team Logo URL ..." value={this.state.teamLogo} onChange={this.onChange} style={{flex: '10', padding: '5px'}} />
+          <input type="text" name="location" placeholder="Stadium Location ..." value={this.state.location} onChange={this.onChange} style={{flex: '10', padding: '5px'}} />
           <input type="submit" value="Submit" className="btn" style={{flex: '1'}} />
         </form>
       ) 

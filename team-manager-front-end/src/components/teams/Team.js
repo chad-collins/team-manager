@@ -15,8 +15,9 @@ export class Team extends Component {
     const { teamId, teamName, teamLogo, location } = this.props.team;
     return (
       <div style={this.getStyle()}>
-      <button onClick={this.props.delTeam.bind(this, teamId)}>x</button>
-        <h4>{ teamName } { teamLogo } { location } </h4>
+      <button onClick={this.props.delTeam.bind(this, teamId)} style={{float: 'right'}}>x</button>
+        <img src={ teamLogo } style={{height: '25px'}}></img>
+        <h4>{ teamName } { location } </h4>
       </div>
     )
   }
