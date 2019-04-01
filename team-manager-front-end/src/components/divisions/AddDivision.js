@@ -20,7 +20,7 @@ state = {
 
   render() {
       return (
-        <form onSubmit={this.onSubmit} style={{display: 'flex'}}>
+        <form onSubmit={this.onSubmit} style={{display: 'flex', flexWrap: 'wrap'}}>
           <input type="text" name="divisionName" placeholder="Create a new Division: Division name...." value={this.state.divisionName} onChange={this.onChange} style={{flex: '10', padding: '5px'}} />
 
 

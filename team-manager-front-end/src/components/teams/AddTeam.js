@@ -27,11 +27,11 @@ state = {
 
   render() {
       return (
-        <form onSubmit={this.onSubmit} style={{display: 'flex'}}>
+        <form onSubmit={this.onSubmit} style={{display: 'flex', flexWrap: 'wrap'}}>
           <input type="text" name="teamName" placeholder="New Team's Name ..." value={this.state.teamName} onChange={this.onChange} style={this.getStyle()} />
           <input type="text" name="teamLogo" placeholder="New Team's Logo ..." value={this.state.teamLogo} onChange={this.onChange} style={this.getStyle()} />
           <input type="text" name="location" placeholder="New Team's Stadium Location ..." value={this.state.location} onChange={this.onChange} style={this.getStyle()} />
-          <input type="submit" value="Submit" className="btn" style={{flex: '1'}} />
+          <input type="submit" value="Submit" className="btn" />
         </form>
       )
   }

@@ -13,8 +13,6 @@ export class Conference extends Component {
     }
   }
 
-
-
   render() {
     const { conferenceName, divisions, conferenceId } = this.props.conference;
 

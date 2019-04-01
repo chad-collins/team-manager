@@ -29,13 +29,13 @@ public class Initializer implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		
 		Conference NFC = conferenceRepo.save(new Conference("NFC"));
-		Conference test = conferenceRepo.save(new Conference("AFC"));
+		Conference AFC = conferenceRepo.save(new Conference("AFC"));
 		
 		Division nfcNorth = divisionRepo.save(new Division("NFC North", NFC));
 		Division nfcSouth = divisionRepo.save(new Division("NFC South", NFC));
 		Division nfcWest = divisionRepo.save(new Division("NFC West", NFC));
 		Division nfcEast = divisionRepo.save(new Division("NFC East", NFC));
-		Division afcNorth = divisionRepo.save(new Division("AFC North", NFC));
+		Division afcNorth = divisionRepo.save(new Division("AFC North", AFC));
 
 		teamRepo.save(new Team("Chicago Bears", "http://www.capsinfo.com/images/NFL/image006.gif", "Chicago, IL", nfcNorth));
 		teamRepo.save(new Team("Green Bay Packers", "http://www.capsinfo.com/images/NFL/image012.gif", "Green Bay, WI", nfcNorth));

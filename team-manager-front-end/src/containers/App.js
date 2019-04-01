@@ -1,137 +1,118 @@
-import React, {
-  Component
-} from 'react';
-import './App.css';
-import Conferences from '../components/conferences/Conferences';
+import React, { Component } from "react";
+import "./App.css";
+import Conferences from "../components/conferences/Conferences";
+import Header from "../components/layout/Header";
+import Footer from "../components/layout/Footer";
 
 class App extends Component {
-
   constructor() {
-    super()
+    super();
     this.state = {
-      conferences: [],
-    }
+      conferences: []
+    };
   }
 
   componentDidMount() {
-    this.getConferences()
+    this.getConferences();
   }
-
 
   addDivision = (id, state) => {
     fetch(`/divisions/add/${id}`, {
-        method: 'POST',
-        body: JSON.stringify(state)
-      })
+      method: "POST",
+      body: JSON.stringify(state)
+    })
       .then(res => res.json())
       .then(data => {
         this.setState({
           conferences: data
-        })
+        });
       })
       .then(window.location.reload())
-      .catch(err => console.log(err))
-  }
-
+      .catch(err => console.log(err));
+  };
 
   addTeam = (id, state) => {
     fetch(`/teams/add/${id}`, {
-        method: 'POST',
-        body: JSON.stringify(state)
-      })
+      method: "POST",
+      body: JSON.stringify(state)
+    })
       .then(res => res.json())
       .then(data => {
         this.setState({
           conferences: data
-        })
+        });
       })
       .then(window.location.reload())
-      .catch(err => console.log(err))
-  }
-
+      .catch(err => console.log(err));
+  };
 
   delConference(id) {
-
     fetch(`/conferences/delete/${id}`, {
-        method: 'delete'
-      })
+      method: "delete"
+    })
       .then(res => res.json())
       .then(data => {
         this.setState({
           conferences: data
-        })
+        });
       })
-      .catch(err => console.log(err))
+      .catch(err => console.log(err));
   }
 
   delTeam(id) {
-
     fetch(`/teams/delete/${id}`, {
-        method: 'delete'
-      })
+      method: "delete"
+    })
       .then(res => res.json())
       .then(data => {
         this.setState({
           conferences: data
-        })
+        });
       })
       .then(window.location.reload())
-      .catch(err => console.log(err))
+      .catch(err => console.log(err));
   }
 
   updateConferenceName = (id, state) => {
     fetch(`/conferences/update/title/${id}`, {
-        method: 'POST',
-        body: JSON.stringify(state)
-      })
+      method: "POST",
+      body: JSON.stringify(state)
+    })
       .then(res => res.json())
       .then(data => {
         this.setState({
           conferences: data
-        })
+        });
       })
       .then(window.location.reload())
-      .catch(err => console.log(err))
-  }
-
+      .catch(err => console.log(err));
+  };
 
   getConferences = () => {
-    fetch('/conferences')
+    fetch("/conferences")
       .then(res => res.json())
       .then(data => {
         this.setState({
           conferences: data
-        })
+        });
       })
-      .catch(err => console.log(err))
-  }
-
-
+      .catch(err => console.log(err));
+  };
 
   render() {
-    return ( <
-      div className = "App" >
-      <
-      Conferences conferences = {
-        this.state.conferences
-      }
-      delConference = {
-        this.delConference
-      }
-      delTeam = {
-        this.delTeam
-      }
-      addTeam = {
-        this.addTeam
-      }
-      updateConferenceName = {
-        this.updateConferenceName
-      }
-      addDivision = {
-        this.addDivision
-      }
-      /> <
-      /div>
+    return (
+      <div className="App">
+        <Header />
+        <Conferences
+          conferences={this.state.conferences}
+          delConference={this.delConference}
+          delTeam={this.delTeam}
+          addTeam={this.addTeam}
+          updateConferenceName={this.updateConferenceName}
+          addDivision={this.addDivision}
+        />
+        <Footer />
+      </div>
     );
   }
 }
