@@ -13,7 +13,7 @@ state = {
         event.preventDefault()
         this.props.addTeam(this.props.division.divisionId, this.state)
         console.log(this.props.division)
-        this.setState({ title: '', teamLogo :"", location :"", division :"" })
+        this.setState({ teamName :"", teamLogo :"", location :"" })
     }
 
     onChange = (event) => this.setState({ [event.target.name]: event.target.value })
@@ -26,7 +26,7 @@ state = {
           <input type="text" name="location" placeholder="locat ..." value={this.state.location} onChange={this.onChange} style={{flex: '10', padding: '5px'}} />
           <input type="submit" value="Submit" className="btn" style={{flex: '1'}} />
         </form>
-      ) 
+      )
   }
 }
 
