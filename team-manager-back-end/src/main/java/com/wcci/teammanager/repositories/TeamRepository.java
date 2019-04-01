@@ -8,4 +8,6 @@ import com.wcci.teammanager.models.Team;
 @Repository
 public interface TeamRepository extends CrudRepository<Team, Long>{
 
+	Team findByTeamName(String string);
+
 }

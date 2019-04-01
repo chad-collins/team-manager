@@ -8,4 +8,6 @@ import com.wcci.teammanager.models.Conference;
 @Repository
 public interface ConferenceRepository extends CrudRepository<Conference, Long> {
 
+	Conference findByConferenceName(String string);
+
 }
