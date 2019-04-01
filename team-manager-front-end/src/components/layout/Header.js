@@ -9,7 +9,7 @@ function Header() {
 }
 
 const headerStyle = {
-    background: 'maroon',
+    background: '#4571b7',
     color: '#fff',
     display: 'flex',
     alignItems: 'center',

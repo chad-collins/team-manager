@@ -5,22 +5,19 @@ function Footer() {
         <footer style={ footerStyle } >
             <h3>Authors:</h3>
             <ul>
-                <li><a href="https://github.com/rewkie" target="_blank" style={ anchorStyle }>Chad Collins</a></li>
-                <li><a href="https://github.com/jsunh98" target="_blank" style={ anchorStyle }>Jason Hochheiser</a></li>
+                <li><a href="https://github.com/rewkie" target="_blank">Chad Collins</a></li>
+                <li><a href="https://github.com/jsunh98" target="_blank">Jason Hochheiser</a></li>
             </ul>
         </footer>
     )
 }
 
 const footerStyle = {
-    background: 'maroon',
+    background: '#4571b7',
     color: '#fff',
     textAlign: 'center',
     padding: '10px'
 }
 
-const anchorStyle = {
-    color: 'white'
-}
 
 export default Footer
