@@ -13,8 +13,6 @@ export class Conference extends Component {
     }
   }
 
-
-
   render() {
     const { conferenceName, divisions, conferenceId } = this.props.conference;
 
@@ -22,7 +20,6 @@ export class Conference extends Component {
             <div  style={this.getStyle()}>
                 <h2>{ conferenceName }</h2>
                 <UpdateConferenceName updateConferenceName={this.props.updateConferenceName} conferenceId={ conferenceId } />
-                <button onClick={this.props.delConference.bind(this, conferenceId)}>x</button>
                 <AddDivision addDivision={this.props.addDivision} conference={this.props.conference}/>
                 {
                     divisions.map((division) => {
