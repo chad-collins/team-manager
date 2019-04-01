@@ -8,4 +8,6 @@ import com.wcci.teammanager.models.Division;
 @Repository
 public interface DivisionRepository extends CrudRepository<Division, Long> {
 
+	Division findByDivisionName(String string);
+
 }
